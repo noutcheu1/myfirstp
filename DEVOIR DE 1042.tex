@@ -1,0 +1,562 @@
+\documentclass[a4paper,11pt,openany]{book}
+%\documentclass[a4paper,10pt]{scrartcl}
+\usepackage{pgf,tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{pbsi}
+\usepackage{amsmath,amssymb}
+\usepackage{sectsty}
+
+%\documentclass[a4paper,10pt]{scrartcl}
+\usepackage{pgf,tikz}
+\usepackage[utf8]{inputenc}
+
+%\documentclass[a4,12pt]{report}
+%\documentclass[12pt,A4,french,oneside,leqno]{report}
+% Autorise les caract`eres accentuŽes
+
+
+%\usepackage{frcursive}
+%\usepackage{here}
+
+%\usepakage{wrapfig}
+\usepackage{graphicx}
+\usepackage{pbsi}%-------------------------------------------->% fonte BrushScriptX-Italic
+\usepackage{textcomp}
+\usepackage{times}
+
+
+\usepackage{calc} 
+\addtolength{\hoffset}{-0.8cm} \addtolength{\textwidth}{2.2cm}
+\addtolength{\voffset}{-1.cm}
+ \addtolength{\textheight}{2.cm}
+
+\usepackage{xcolor,rotating}
+ 
+\usepackage{color}
+\usepackage{listings}
+\usepackage{colortbl}
+\usepackage{fancybox}%--
+\usepackage{hyperref}
+\textheight=22.1cm \textwidth=15.5cm \frenchspacing
+\linespread{1.5} %l'interligne
+\usepackage{enumerate}%--------------------------------------->% un joli package qui amÃ©liore l'environnement enumerate du au celÃšbre "David Car-lisle"
+\usepackage{expdlist}%---------------------------------------->% permet d'insÃ©rer un paragraphe dans une liste sans en boulverser la numÃ©rotation
+\usepackage{graphicx}%---------------------------------------->% importer des figure dans le document
+
+\definecolor{bl1}{rgb}{0.00, 0.0, 0.200}
+\definecolor{bl2}{rgb}{0.00, 0.62, 0.88}
+\definecolor{gr1}{rgb}{0.0, 0.69, 0.70}
+\definecolor{rg1}{rgb}{0.40, 0.14, 0.14}
+
+
+
+\usepackage{xspace}%----------------------
+\usepackage[top=2.5cm, bottom=2.5cm, left=3.5cm, right=2cm]{geometry}%,,,,,,,,,,,,,pour les marges
+
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{pdfsync}
+
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage[thmmarks,amsmath]{ntheorem}
+
+\pagestyle{headings}
+
+
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{soul}
+\usepackage [dvips]{epsfig}
+% Ceci permet d'avoir les noms de chapitre et de section
+% en minuscules
+%\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter .\ #1}{}}
+
+\renewcommand{\sectionmark}[1]{\markright{\thesection .\ #1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection .\ #1}}
+
+\renewcommand{\subsubsectionmark}[1]{\markright{\thesubsubsection .\ #1}}
+ % \subsubsection
+\fancypagestyle{plain}{ % pages de tetes de chapitre
+\fancyhead{} % supprime l'entete
+%\fancyfoot{} %supprime le pied de page
+\renewcommand{\headrulewidth}{0pt} % et le filet
+\renewcommand{\footrulewidth}{0pt}
+}
+\newcommand{\clearemptydoublepage}{%
+\newpage{\pagestyle{plain}\cleardoublepage}}
+\rhead{\textbf{\thepage}} %{\textsl{\rightmark}}%
+
+\renewcommand{\headrulewidth}{1.5 pt}
+\addtolength{\headheight}{1.pt}
+\renewcommand{\footrulewidth}{0.5 pt}
+
+\fancyfoot[L]{%
+\footnotesize{\color{bl1}\textbf{ noutchj@ 129}}}
+
+%\footnotesize{\color{bl1}\scriptsize{\textbf{Mémoire  de Master II}$~~~~$ $\emph{}$ \emph{}}}
+ \cfoot{} \rfoot{ \color{bl1} \textbf{\scriptsize \textbf{ Validation + Reussite = Succès  }. }} %\copyright
+
+\usepackage[french]{babel}\fancyfoot[c]{%
+\fcolorbox{black}{gray}{\color{white}\textbf{\thepage}}}
+
+%%
+%==================================================================================================================%
+%%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CHAPTER FRAME~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+%==================================================================================================================%
+%%
+%%
+\makeatletter
+\newcommand{\thechapterwords}
+{ \ifcase \thechapter\or un\or Deux\or Trois\or Quatre\or
+Cinq\or
+  Six\or Sept\or Eight\or Nine\or Ten\or Onze\fi}
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{   \vspace*{18\p@}%
+  {\parindent \z@ \centering \reset@font
+                  \color{bl1}
+          \hrule
+          \thickhrulefill\quad
+          \fcolorbox{gray}{bl1}{\color{white}\textbf{ \@chapapp{} \thechapterwords}}
+          \quad \thickhrulefill
+          \quad \hrule
+          \par\nobreak
+          \vspace*{15\p@}%
+          \Huge \bfseries #1\par\nobreak
+          \par
+          \vspace*{15\p@}%
+          \hrule
+          \par
+          \vspace*{8\p@}%
+          \thickhrulefill\quad
+      \vskip 60\p@
+      %\vskip 100\p@
+    }}
+    
+\def\@makeschapterhead#1{   
+ \vspace*{10\p@}  
+ {\parindent \z@ \centering \reset@font
+                 \color{bl1}
+         \hrule
+         \par\nobreak
+         \vspace*{2\p@}%
+         \thickhrulefill
+         \par\nobreak
+         \vspace*{6\p@}%
+         \interlinepenalty\@M
+         \hrule
+         \vspace*{15\p@}%
+         \Large{$\maltese$}
+         \hspace{0.3cm}
+         \Huge \bfseries #1 \hspace{0.3cm}\Large{$\maltese$}\par\nobreak
+         \par
+         \vspace*{15\p@}%
+         \hrule
+         \par\nobreak
+         \vspace*{2\p@}%
+         \thickhrulefill
+     \vskip 60\p@
+     %\vskip 100\p@
+   }}
+\def\@makechapterhead#1{    \vspace*{10\p@}  {\parindent \z@ \centering \reset@font
+                \color{bl1}
+        \hrule
+        \thickhrulefill\quad
+        $\star~~\star$\hspace{0.3cm}\fcolorbox{gray}{bl1}{\color{white}\textbf{ \@chapapp{}\thechapterwords}}
+        \hspace{0.3cm}$\star~~\star$
+        \quad \thickhrulefill
+        \quad \hrule
+        \par\nobreak
+        \vspace*{15\p@}%
+        \Huge \bfseries #1\par\nobreak
+        \par
+        \vspace*{15\p@}%
+        \hrule
+        \par
+        \vspace*{2\p@}%
+        \thickhrulefill
+        \par
+        \vspace*{6\p@}%
+        \hrule
+    \vskip 60\p@
+    %\vskip 100\p@
+  }}
+ 
+\usepackage{fancyhdr}%---------------------------------------->% pour l'entÃªte et pied de page
+\pagestyle{fancy} %%% Left Even, Right Odd
+%=================================================  EN-TÃTE : =====================================================
+%%
+ %==================================================================================================================%
+%%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~encadrement de mes sections~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+%==================================================================================================================%
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage [dvips]{epsfig}
+
+% changer la police 'chapitre' (en Rouge)
+\chapterfont{\color{blue}{}\fontfamily{pzc}
+\selectfont}
+% changer la police 'section' (en Rouge)
+\sectionfont{\color{red}\fontfamily{phv}
+\selectfont}
+% changer la police 'soussection' (en Rouge)
+\definecolor{SSecCol}{cmyk}{0.2,0.6,1,0.2}
+\subsectionfont{\color{SSecCol}
+{}\fontfamily{ppl}\selectfont}
+\makeatletter
+
+\def\section{\@ifstar\unnumberedsection\numberedsection}
+\def\numberedsection{\@ifnextchar[%]
+  \numberedsectionwithtwoarguments\numberedsectionwithoneargument}
+\def\unnumberedsection{\@ifnextchar[%]
+  \unnumberedsectionwithtwoarguments\unnumberedsectionwithoneargument}
+\def\numberedsectionwithoneargument#1{\numberedsectionwithtwoarguments[#1]{#1}}
+\def\unnumberedsectionwithoneargument#1{\unnumberedsectionwithtwoarguments[#1]{#1}}
+\def\numberedsectionwithtwoarguments[#1]#2{%
+  \ifhmode\par\fi
+  %\removelastskip
+  \vskip 3ex\goodbreak
+  \refstepcounter{section}%
+  \hbox to \hsize{%
+    \color{white}
+    \colorbox{rg1}{%
+      \hbox to 2cm{\hss\bfseries\Large\thesection.\ }%
+      \vtop{%
+        \advance \hsize by -1cm
+        \advance \hsize by -2\fboxrule
+        \advance \hsize by -2\fboxsep
+        \parindent=0pt
+        \leavevmode\raggedright\bfseries\Large
+        #2
+        }%
+      }}\nobreak
+  \vskip 2mm\nobreak
+  \addcontentsline{toc}{section}{%
+    \protect\numberline{\thesection}%
+    #1}%
+  \ignorespaces
+  }
+
+ %==================================================================================================================%
+%%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~encadrement de mes subsectios~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+%==================================================================================================================%
+  
+\makeatletter 
+
+% un second package
+\title{\emph{Département d’Informatique \\
+INF1042, fiche td-tp séance 6 \\ (Fondements mathématiques), Mai 2020\\
+Coordonnées par  :Professeur Maurice TCHUENTE ;\\ Dr Thomas MESSI
+NGUELÉ, Assistant Lecturer
+}} 
+\author{ETUDIANT : NOUTCHEU LIBERT JORAN \\ MATRICULE :19M2310}
+\date{\emph{\today}}
+
+\pdfinfo{%
+  /Title    ()
+  /Author   ()
+  /Creator  ()
+  /Producer ()
+  /Subject  ()
+  /Keywords ()
+}
+ 
+ %---------------------------------------->% pour l'entÃªte et pied de page
+\pagestyle{fancy} %%% Left Even, Right Odd
+%=================================================  EN-TÃTE : =====================================================
+%%
+ %==================================================================================================================%
+%%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~encadrement de mes sections~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+%==================================================================================================================%
+
+\makeatletter
+\def\section{\@ifstar\unnumberedsection\numberedsection}
+\def\numberedsection{\@ifnextchar[%]
+  \numberedsectionwithtwoarguments\numberedsectionwithoneargument}
+\def\unnumberedsection{\@ifnextchar[%]
+  \unnumberedsectionwithtwoarguments\unnumberedsectionwithoneargument}
+\def\numberedsectionwithoneargument#1{\numberedsectionwithtwoarguments[#1]{#1}}
+\def\unnumberedsectionwithoneargument#1{\unnumberedsectionwithtwoarguments[#1]{#1}}
+\def\numberedsectionwithtwoarguments[#1]#2{%
+  \ifhmode\par\fi
+  %\removelastskip
+  \vskip 3ex\goodbreak
+  \refstepcounter{section}%
+  \hbox to \hsize{%
+    \color{white}
+    \colorbox{rg1}{%
+      \hbox to 2cm{\hss\bfseries\Large\thesection.\ }%
+      \vtop{%
+        \advance \hsize by -1cm
+        \advance \hsize by -2\fboxrule
+        \advance \hsize by -2\fboxsep
+        \parindent=0pt
+        \leavevmode\raggedright\bfseries\Large
+        #2
+        }%
+      }}\nobreak
+  \vskip 2mm\nobreak
+  \addcontentsline{toc}{section}{%
+    \protect\numberline{\thesection}%
+    #1}%
+  \ignorespaces
+  }
+
+ %==================================================================================================================%
+%%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~encadrement de mes subsectios~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+%==================================================================================================================%
+
+\makeatletter
+\def\subsection{\@ifstar\unnumberedsubsection\numberedsubsection}
+\def\numberedsubsection{\@ifnextchar[%]
+  \numberedsubsectionwithtwoarguments\numberedsubsectionwithoneargument}
+\def\unnumberedsubsection{\@ifnextchar[%]
+  \unnumberedsubsectionwithtwoarguments\unnumberedsubsectionwithoneargument}
+\def\numberedsubsectionwithoneargument#1{\numberedsubsectionwithtwoarguments[#1]{#1}}
+\def\unnumberedsubsectionwithoneargument#1{\unnumberedsubsectionwithtwoarguments[#1]{#1}}
+\def\numberedsubsectionwithtwoarguments[#1]#2{%
+  \ifhmode\par\fi
+  %\removelastskip
+  \vskip 3ex\goodbreak
+  \refstepcounter{subsection}%
+  \hbox to \hsize{%
+    \color{rg1}
+    %\colorbox{white}
+        {%
+      \hbox to 2cm{\hss\bfseries\Large\thesubsection.\ }%
+      \vtop{%
+        \advance \hsize by -1cm
+        \advance \hsize by -2\fboxrule
+        \advance \hsize by -2\fboxsep
+        \parindent=0pt
+        \leavevmode\raggedright\bfseries\Large
+        #2
+        }%
+      }}\nobreak
+  \vskip 2mm\nobreak
+  \addcontentsline{toc}{subsection}{%
+    \protect\numberline{\thesubsection}%
+    #1}%
+  \ignorespaces
+  }
+   \makeatletter
+   \def\subsubsection{\@ifstar\unnumberedsubsubsection\numberedsubsubsection}
+   \def\numberedsubsubsection{\@ifnextchar[%]
+     \numberedsubsubsectionwithtwoarguments\numberedsubsubsectionwithoneargument}
+   \def\unnumberedsubsubsection{\@ifnextchar[%]
+     \unnumberedsubsubsectionwithtwoarguments\unnumberedsubsubsectionwithoneargument}
+   \def\numberedsubsubsectionwithoneargument#1{\numberedsubsubsectionwithtwoarguments[#1]{#1}}
+   \def\unnumberedsubsubsectionwithoneargument#1{\unnumberedsubsubsectionwithtwoarguments[#1]{#1}}
+   \def\numberedsubsubsectionwithtwoarguments[#1]#2{%
+     \ifhmode\par\fi
+     %\removelastskip
+     \vskip 3ex\goodbreak
+     \refstepcounter{subsubsection}%
+     \hbox to \hsize{%
+       \color{rg1}
+       %\colorbox{white}
+           {%
+         \hbox to 2cm{\hss\bfseries\Large\thesubsubsection.\ }%
+         \vtop{%
+           \advance \hsize by -1cm
+           \advance \hsize by -2\fboxrule
+           \advance \hsize by -2\fboxsep
+           \parindent=0pt
+           \leavevmode\raggedright\bfseries\Large
+           #2
+           }%
+         }}\nobreak
+     \vskip 2mm\nobreak
+     \addcontentsline{toc}{subsubsection}{%
+       \protect\numberline{\thesubsubsection}%
+       #1}%
+     \ignorespaces
+     }
+
+
+\fancyfoot[c]{%
+\shadowbox{\textbf{\thepage}}}
+\renewcommand{\footrulewidth}{1pt}%
+\fancyhead[RO]{\nouppercase{{\bfseries\rightmark}}}
+ \fancyhead[LO]{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\familydefault}{ptm}
+% A LA PLACE DE TOUS LES PROOF , IL FAUT METTRE proof,  POUR AVOIR LA FORMME COMME CELLE DE FAGA  SUIVANT LE CODE SUIVSNT.
+
+\renewcommand{\qedsymbol}{\rule{0.6em}{0.6em}}
+%
+\newcommand{\preuve}[1]{\begin{proof}#1\end{proof}}
+\selectfont
+\newtheorem{QCM}{\fcolorbox{gray!50}{rg1}{\color{white}\textbf{QCM}}}[section]
+\newtheorem{proposition}{\fcolorbox{gray!20}{rg1}{\color{white}\textbf{Proposition}}}[section]
+\newtheorem{theoreme}{\fcolorbox{gray!50}{rg1}{\color{white}\textbf{Théorème}}}[section]
+\newtheorem{lemme}{\fcolorbox{gray!20}{bl2}{\color{white}\textbf{Lemme}}}[section]
+\newtheorem{rappel}{Rappels}[section]
+\theoremstyle{definition}%------------------------------------>% permet de ne pas écrire le contenu de ce qui suit en italique
+\newtheorem{objectifs}{\fcolorbox{gray!20}{bl2}{\color{white}\textbf{Objectifs}}}[section]
+\newtheorem{exemple}{\fcolorbox{gray!20}{bl2}{\color{white}\textbf{Exemple}}}[section]
+\newtheorem{methode}{\fcolorbox{gray!20}{bl2}{\color{white}\textbf{Méthode}}}[section]
+\newtheorem{propriete}{\fcolorbox{gray!20}{bl2}{\color{white}\textbf{Propriété}}}[section]
+\newtheorem{remarque}{\fcolorbox{gray!20}{rg1}{\color{white}\textbf{Remarque}}}[section]
+\newtheorem{definition}{\fcolorbox{gray!20}{bl2}{\color{white}\textbf{Définition}}}[section]
+\newtheorem*{exercice}{\fcolorbox{gray!20}{bl2}{\color{white}\textbf{Exercice}}}
+\newtheorem*{solution}{\fcolorbox{gray!20}{bl2}{\color{white}\textbf{Solution}}}
+\usepackage{wasysym}
+\usepackage{pifont}
+ 
+ 
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand\footrulewidth{2pt}
+\fancyfoot[L]{STRUCTUR DE DONNEES}
+\fancyfoot[C]{  INFO 1042  DEVOIR }
+\fancyfoot[R]{\today}
+\begin{document}
+\renewcommand{\contentsname}{sommaire}
+\tableofcontents
+\chapter{probleme sur les Fondements mathématiques}
+\section{Expliqu'ons l’algorithme du tri par bulles (bubble sort en anglais).}
+ \textit{tri à bulles}
+  \textbf{ri à bulles}  est un algorithme de tri. Il consiste à comparer répétitivement les éléments
+consécutifs d’un tableau, et à les permuter lorsqu’ils sont mal triés.
+ \begin{description}
+  \item [$\circledast$] Sur  un  tableau  de  n  éléments  (numérotés  de  1  à  n),  le principe du tri à bulles est le suivant :
+  \item [$\ast$] On parcourt le tableau à trier à l'envers, en comparant les éléments consécutifs deux-à-deux tout en faisant remonter vers le début du tableau les plus petits éléments.
+  \item [$\ast$]–La remontée est progressive : un élément remonte s'il est plus petit que son voisin de gauche. 
+  \item [$\ast$]Lorsque l'on a fini de parcourir le tableau une première fois, on est sûr d'avoir placé le plus petit élément à la bonne place. 
+  \item [$\ast$]On parcourt donc le nouveau tableau à l'envers pour placer le second plus petit élément, troisième plus petit, jusqu'au dernier. 
+  
+ \end{description}
+\subsection{Montrer que le nombre d’échanges est au plus égal au nombre de comparaisons}
+
+Le nombre de comparaisons "si Tab[ j-1 ] > Tab[ j ] alors" est une valeur qui ne dépend que de la longueur n de la liste (n est le  nombre d'éléments du tableau), ce nombre est égal au nombre de fois que les itérations s'exécutent, le comptage montre que la boucle "pour i de n jusquà 1 faire" s'exécute n fois (donc une somme de n termes) et qu'à chaque fois la boucle "pour j de 2 jusquà i faire" exécute (i-2)+1 fois la comparaison "si Tab[ j-1 ] > Tab[ j ] alors".
+
+La complexité en nombre de comparaisons est égale à la somme des n termes suivants (i = n, i = n-1,....)
+
+C = (n-2)+1 + ([n-1]-2)+1 +.....+1+0 = (n-1)+(n-2)+...+1 = n(n-1)/2 (c'est la somme des n-1 premiers entiers). 
+ La complexité en nombre de comparaison est de de l'ordre de $n^2$, que l'on écrit O($n^2$).
+ 
+ Calculons par dénombrement le nombre d'échanges dans le pire des cas (complexité au pire = majorant du nombre d'échanges). Le cas le plus mauvais est celui où le tableau est déjà classé mais dans l'ordre inverse et donc chaque cellule doit être échangée, dans cette éventualité il y adonc autant d'échanges que de tests.
+
+La complexité au pire en nombre d'échanges est de l'ordre de $n^2$, que l'on écrit O($n^2$).
+ \subsection{Montrons que le nombre de comparaisons est au plus égal à n(n-1)/2
+            }
+   \colorbox{green}{Choisissons comme opération élémentaire la comparaison de deux cellules du tableau.
+    }
+    
+Le nombre de comparaisons "si Tab[ j-1 ] > Tab[ j ] alors" est une valeur qui ne dépend que de la longueur n de la liste (n est le  nombre d'éléments du tableau), ce nombre est égal au nombre de fois que les itérations s'exécutent, le comptage montre que la boucle "pour i de n jusquà 1 faire" s'exécute n fois (donc une somme de n termes) et qu'à chaque fois la boucle "pour j de 2 jusquà i faire" exécute (i-2)+1 fois la comparaison "si Tab[ j-1 ] > Tab[ j ] alors".
+
+La complexité en nombre de comparaisons est égale à la somme des n termes suivants (i = n, i = n-1,....)
+\begin{exercice}{\bf 1 : }
+       \begin{enumerate}
+         \item On désigne par $\mathbb{Q}$ l'ensemble des nombres rationnels et $\mathbb{R}$ l'ensemble des nombres réels. Écrire à l'aide des quantificateurs les propositions suivantes:
+         \begin{itemize}
+         \item[1-a] Le carré de tout réel est positif.
+         \item[1-b] Entre deux réels distincts, il existe un rationnel.
+         \end{itemize}
+         \item En interprétant $A$ par ''je pars ''et $B$ par ''tu reste'' et $C$ par '' il y a personne'' traduisez les formules logiques suivantes en phrases du langage naturel.  
+         \begin{itemize}
+         \item[2-a] $(A \wedge non(B))\Longrightarrow C$
+         \hspace{2cm}2-b $(non(A)\vee non(B))\Longrightarrow non(C)$.
+         \end{itemize}  
+         \end{enumerate}
+       
+        \end{exercice}
+C = (n-2)+1 + ([n-1]-2)+1 +.....+1+0\\
+\hspace*{12pt}= (n-1)+(n-2)+...+1 = n(n-1)/2 (c'est la somme des n-1 premiers entiers).
+\subsection{Montrons que dans le tri par bulles, le nombre d'\'echanges \'egale au nombre d'inversions.}
+Montrons que dans le tri par bulles, le nombre d'\'echanges \'egale au nombre d'inversions.    
+    Soit $t_1$ le tableau juste avant cet \'echange, $t_2$ le tableau juste apr\`es cet \'echange, et $i_0$ la valeur de la variable i au moment de l'\'echange. Un \'echange ne se produit que lorsque t[i] > t[i+1] et il s'agi d'un \'echange entre 
+    t[i] et t[i+ 1].Ainsi, dans $t_1$, on avait $t_1$[$i_0$]< $t_1$[$i_0$+1] et $t_2$ est \'egal \`a $t_1$ dans lequel 
+    on a proc\'ed\'e \`a l’\'echange   entre les \'el\'ements d’indices $i_0$ et $i_0$ + 1. Cet \'echange \'elimine exactement une inversion. En effet : 
+    \begin{description}
+     \item[$\star$] dans $t_1$, ($i_0$,$i_0$ +1) est une version, pas dans $t_2$ 
+     \item [$\star$]les autres inversions sont pr\'eserv\'ees :
+     \begin{description}
+      \item [$\ast$] lorsque i < j et i,j tous  deux diff\'erents de $i_0$ et $i_0$ + 1, (i,j) est une inversion dans $t_1$ si et seulement si  c’est une inversion dans $t_2$; 
+      \item[$\ast$] lorsque i < $i_0$ alors : (i, $i_0$) est une inversion dans $t_1$ si seulement si $(i, i_0$ + 1) est une inversion dans $t_2$ et $(i, i_0$ + 1) est une inversion dans $t_2$ ssi $(i, i_0$) est une inversion dans $t_2$
+      \item[$\ast$] lorsque $i_0$ + 1 < j alors : ($I_0, j)$ est une inversion dans $t_1$ ssi $(i_0+ 1, j)$ est une inversion dans $t_2$ et ($i_0+ 1, j)$ est une inversion dans $t_1$ ssi $(i_0, j)$ est une inversion dans $t_2$;
+      \item[$\ast$] et ceci prend en consid\'eration toutes les inversions possibles dans $t_1$ et $t_2$.\\
+    \begin{bf}
+     conclusion :
+    \end{bf} nous venons de voire que tout \'echange au cours du tris a bulles \'elimine exactement une inversion.  
+le nombre d'\'echanges effectu\'es au cours de ce tris sur $t$ est donc la diff\'erence entre le nombre d’inversions au d\'epart,O(n), et le nombre d’inversions \`a fin du tri Mais le tableau final est tri\'e et un tableau tri\'e ne contient aucune inversion. Donc le nombre d’ \'echange est simplement O(n)
+Le nombre d’\'echanges est  \'egal au nombre d’inversions dans le tableau inital
+     \end{description}
+
+     
+    \end{description}
+    
+    
+\subsection{\emph{Montrons que Inv(i,p) $\in$ [0, i-1]}
+}
+Pour illustrer ce principe, prenons la suite de nombres suivante :   
+       \fbox{6 0 3 5 1 4 2}\\  
+       Nous voulons trier ces valeurs par ordre croissant. Commençons par le commencement. Nous allons faire un premier passage.
+
+\fbox{
+0 6 3 5 1 4 2   // On compare 6 et 3 : on inverse}\\
+\fbox{0 3 6 5 1 4 2   // On compare 6 et 5 : on inverse}\\
+\fbox{0 3 5 6 1 4 2   // On compare 6 et 1 : on inverse}\\
+\fbox{0 3 5 1 6 4 2   // On compare 6 et 4 : on inverse
+}\\
+\fbox{
+0 3 5 1 4 6 2   // On compare 6 et 2 : on inverse}\\
+\fbox{
+0 3 5 1 4 2 6   // Nous avons terminé notre premier passage en effectuant 5  \'echange }\\ 
+ici Inv(6,p) =5\\ $\in$[0 ,6-1]
+Nous allons donc refaire un passage mais en om\'ettant la dernière case.\\
+\fbox{
+0 3 5 1 4 2 6   // On compare 0 et 3 : on laisse}\\
+\fbox{0 3 5 1 4 2 6   // On compare 3 et 5 : on laisse}\\
+\fbox{0 3 5 1 4 2 6   // On compare 5 et 1 : on inverse}\\
+\fbox{0 3 1 5 4 2 6   // On compare 5 et 4 : on inverse
+}\\
+\fbox{0 3 1 4 5 2 6   // On compare 5 et 2 : on inverse}\\
+\fbox{
+0 3 1 4 2 5 6   // Nous avons terminé notre passage avec  3 echange  } 
+ici Inv(5,p) =3 $\in$[0 ,5-1]
+
+Nous allons donc refaire un passage mais en om\'ettant la dernière case.\\
+\fbox{
+0 3 1 4 2 5 6   // On compare 0 et 3 : on laisse}\\
+\fbox{0 3 1 4 2 5 6 // On compare 3 et 1 : on inverse}\\
+\fbox{0 1 3 4 2 5 6   // On compare 3 et 4 : on laisse }\\
+\fbox{0 1 3 4 2 5 6   // On compare 4 et 2 : on inverse
+}\\
+\fbox{0  1 3 2 4  5 6   // Nous avons terminé notre passage avec  2 echange  } 
+ici Inv(3,p) =1 $\in$[0 ,3-1] et Inv(4 ,p) =1 $\in$[0 ,3-1]
+
+
+Nous allons donc refaire un passage mais en om\'ettant les  dernière case tries au tour pr\'ecedant. car le tableau n'est pas encore tries\\
+\fbox{0  1 3 2 4  5 6   // On compare 0 et 1 : on laisse}\\
+\fbox{0  1 3 2 4  5 6 // On compare 1 et 3 : on laisse}\\
+\fbox{0 1 3 2 4  5 6  // On compare 3 et 2 : on inverse }\\
+\fbox{0  1 2 3 4  5 6  // Nous avons terminé notre passage avec  1  echange celui de 2 et 3 } 
+ici Inv(2,p) =0 $\in$[0 ,2-1] et Inv(3 ,p) =1 $\in$[0 ,3-1]
+
+\fbox{0 1 2 3 4 5 6   // On compare 0 et 1 : On laisse car 0 < 1}\\
+\fbox{
+0 1 2 3 4 5 6   // On compare 1 et 2 : On laisse car 1 < 2}\\
+\fbox{
+0 1 2 3 4 5 6   // Nous avons terminé notre passage}\\
+a la fin de ce tris on constate que inv(i,p) retourne le nombre de fois qu'un \'el\'ement  i de  p est permuter et vue qu'on effectue un tris dans l'odre croisant  
+ 
+\paragraph{conclusion :} inv(i,p) retourne le nombre de permutation p tel que : $a_i>a_j$ et i<j.  il  y'a\'echange d element $a_i$ en position i avec l element $a_j$ en position j une fois cette element tri\'es on reduit de une case de moins pour eviter de tries encore car on sait que de [0 \`a $a_{i-1}$] $a_i$ est le plus grand ce qui diminue le nombre de comparaison a intervale  de [0, i-1] or dans le tris de bulles le nombre de comparaison est \'egal au nombre d'inversion donc 
+ Inv(i,p) $\in$ [0, i-1]
+
+ \chapter{ensemble et application exercice d'application}
+\section{D\'ecrire les structures de donn\'ees}
+
+ici  R = {($x_1$ $ ,y_1$ $ , c_1$ ), ... , {($x_m$ $ , y_m$ $ , c_m$ )} un ensemble de liste chain\'ees ayant chaqu'un un tableau de trois liste chaine OU $x_m$ $ , y_m$ $ , c_m$ sont  
+des tronçons de route represente les valeur des liste chain\'ees et a chaque passage sur 
+ fusionera ses  tableaux
+
+\end{document}
